@@ -22,7 +22,7 @@ body {
 
 .cell.black {
   background-color: #0058dd;
-  border: 0.9px dotted #ecfc7c;
+  /* border: 0.9px dotted #ecfc7c; */
 }
 
 .cell.transition {
@@ -34,7 +34,7 @@ body {
     transform: scale(0) rotate(0deg);
   }
   50% {
-    transform: scale(1.2) rotate(360deg); /* Full rotation during color change */
+    transform: scale(1) rotate(360deg); /* Full rotation during color change */
   }
   100% {
     transform: scale(0) rotate(0deg);
