@@ -1,22 +1,42 @@
 const colors = [
-  "#FF87F3", // MIK-AS3.mp3
   "#32B5FF", // MIK-C3.mp3
   "#FF3232", // MIK-D3.mp3
   "#0EDC0A", // MIK-E3.mp3
   "#E9ED19", // MIK-FS3.mp3
-  "#ff8b2a", // MIK-GS3.mp3
-]; // Your specified colors
+  "#FF87F3", // MIK-GS3.mp3
+  "#FF87F3", // MIK-AS3.mp3
+
+]; 
 
 // Map colors to audio files
 const audioFiles = {
-  "#FF87F3": "assets/MIK-AS3.mp3", // Replace with actual paths
-  "#32B5FF": "assets/MIK-C3.mp3",
-  "#FF3232": "assets/MIK-D3.mp3",
-  "#0EDC0A": "assets/MIK-E3.mp3",
-  "#E9ED19": "assets/MIK-FS3.mp3",
-  "#FF87F3": "assets/MIK-GS3.mp3", // Ensure unique keys or handle duplicates appropriately
+  "#FF87F3": "path/to/MIK-AS3.mp3", // Replace with actual paths
+  "#32B5FF": "path/to/MIK-C3.mp3",
+  "#FF3232": "path/to/MIK-D3.mp3",
+  "#0EDC0A": "path/to/MIK-E3.mp3",
+  "#E9ED19": "path/to/MIK-FS3.mp3",
+  // "#FF87F3": "path/to/MIK-GS3.mp3", // Ensure unique keys or handle duplicates appropriately
 };
 
+// Store audio objects to preload
+const audioElements = {};
+
+function preloadAudio() {
+  colors.forEach(color => {
+    const audioSrc = audioFiles[color];
+    if (audioSrc) {
+      audioElements[color] = new Audio(audioSrc);
+      audioElements[color].load(); // Preload the audio
+    }
+  });
+}
+
+// Initialize audio on first user interaction
+document.addEventListener("click", () => {
+  preloadAudio();
+});
+
+// Get all black cells
 const blackCells = document.querySelectorAll(".cell.black");
 
 blackCells.forEach((cell) => {
@@ -25,9 +45,10 @@ blackCells.forEach((cell) => {
     cell.style.backgroundColor = randomColor; // Change background color to random
 
     // Play corresponding audio
-    const audioSrc = audioFiles[randomColor];
-    if (audioSrc) {
-      playAudio(audioSrc);
+    const audioElement = audioElements[randomColor];
+    if (audioElement) {
+      audioElement.currentTime = 0; // Reset audio to start
+      audioElement.play();
     }
   });
 
@@ -45,8 +66,5 @@ function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-// Function to play audio
-function playAudio(src) {
-  const audio = new Audio(src);
-  audio.play();
-}
+// Preload audio files
+preloadAudio();
