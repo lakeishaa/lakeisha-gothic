@@ -1,0 +1,73 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(76, 1fr);
+  grid-template-rows: repeat(17, 1fr);
+  width: 760px; /* Width for 76 columns */
+  height: 170px; /* Height for 18 rows */
+  transform: scale(1.7);
+}
+
+.cell {
+  border: 0.9px dotted #ecfc7c;
+  transition: background-color 0.3s ease, transform 0.05s ease;
+}
+
+.cell.black {
+  background-color: #0058dd;
+  position: relative; /* To contain the star shape positioning */
+}
+
+/* Transition animation for color change */
+.cell.transition {
+  animation: colorChange 1s forwards;
+  border-radius: 50%;
+}
+
+@keyframes colorChange {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg); /* Full rotation during color change */
+  }
+  100% {
+    transform: rotate(0deg); /* Reset rotation */
+  }
+}
+
+/* Add star-six style for the hover effect */
+.star-six {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid red;
+  position: relative;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+.star-six:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 50px solid red;
+  position: absolute;
+  top: 15px;
+  left: -25px;
+}
+
+/* Optional hover transition for smooth scaling effect */
+.cell.star-six:hover {
+  transform: scale(1.1); /* Slight scaling on hover */
+}

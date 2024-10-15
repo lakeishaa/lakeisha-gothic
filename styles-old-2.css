@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(76, 1fr);
+    grid-template-rows: repeat(17, 1fr);
+    width: 760px; /* Width for 76 columns */
+    height: 170px; /* Height for 18 rows */
+    transform: scale(1.7);
+  }
+  
+  .cell {
+    border: 0.9px dotted #ecfc7c;
+    transition: background-color 0.3s ease, transform 0.05s ease;
+  }
+  
+  .cell.black {
+    background-color: #0058dd;
+  }
+  
+  .cell.hovered {
+    background-color: rgb(255, 0, 212);
+  }
+  
+  .cell.transition {
+    animation: colorChange 1s forwards;
+  }
+  
+  @keyframes colorChange {
+    0% {
+      background-color: rgb(255, 0, 212);
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(360deg); /* Full rotation during color change */
+    }
+    100% {
+      background-color: white; /* Change this to your desired end color */
+      transform: rotate(0deg); /* Reset rotation */
+    }
+  }
+  
