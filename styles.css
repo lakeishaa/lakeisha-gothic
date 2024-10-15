@@ -11,9 +11,11 @@ body {
   display: grid;
   grid-template-columns: repeat(76, 1fr);
   grid-template-rows: repeat(17, 1fr);
-  width: 760px; /* Width for 76 columns */
-  height: 170px; /* Height for 18 rows */
-  transform: scale(1.7);
+  width: 90vw; /* Set width to 90% of viewport width */
+  height: calc(
+    90vw * (17 / 76)
+  ); /* Keep the height proportional to the 76:17 ratio */
+  /* transform: scale(1.7);  */
 }
 
 .cell {
