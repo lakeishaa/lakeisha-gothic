@@ -4,7 +4,7 @@ const colors = [
   "#FF3232", // MIK-D3.mp3
   "#0EDC0A", // MIK-E3.mp3
   "#E9ED19", // MIK-FS3.mp3
-  "#FF87F3", // MIK-GS3.mp3
+  "#ff8b2a", // MIK-GS3.mp3
 ]; // Your specified colors
 
 // Map colors to audio files
@@ -23,7 +23,7 @@ blackCells.forEach((cell) => {
   cell.addEventListener("mouseenter", () => {
     const randomColor = getRandomColor();
     cell.style.backgroundColor = randomColor; // Change background color to random
-    
+
     // Play corresponding audio
     const audioSrc = audioFiles[randomColor];
     if (audioSrc) {
