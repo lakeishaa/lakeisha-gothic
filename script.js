@@ -5,24 +5,23 @@ const colors = [
   "#E9ED19", // MIK-FS3.mp3
   "#FF87F3", // MIK-GS3.mp3
   "#FF87F3", // MIK-AS3.mp3
-
-]; 
+];
 
 // Map colors to audio files
 const audioFiles = {
-  "#FF87F3": "path/to/MIK-AS3.mp3", // Replace with actual paths
-  "#32B5FF": "path/to/MIK-C3.mp3",
-  "#FF3232": "path/to/MIK-D3.mp3",
-  "#0EDC0A": "path/to/MIK-E3.mp3",
-  "#E9ED19": "path/to/MIK-FS3.mp3",
-  // "#FF87F3": "path/to/MIK-GS3.mp3", // Ensure unique keys or handle duplicates appropriately
+  "#32B5FF": "assets/MIK-C3.mp3",
+  "#FF3232": "assets/MIK-D3.mp3",
+  "#0EDC0A": "assets/MIK-E3.mp3",
+  "#E9ED19": "assets/MIK-FS3.mp3",
+  "#FF87F3": "assets/MIK-AS3.mp3", // Replace with actual paths
+  // "#FF87F3": "assets/MIK-GS3.mp3", // Ensure unique keys or handle duplicates appropriately
 };
 
 // Store audio objects to preload
 const audioElements = {};
 
 function preloadAudio() {
-  colors.forEach(color => {
+  colors.forEach((color) => {
     const audioSrc = audioFiles[color];
     if (audioSrc) {
       audioElements[color] = new Audio(audioSrc);
