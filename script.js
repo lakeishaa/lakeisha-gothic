@@ -4,7 +4,7 @@ const colors = [
   "#0EDC0A", // MIK-E3.mp3
   "#E9ED19", // MIK-FS3.mp3
   "#FF87F3", // MIK-GS3.mp3
-  "#FF87F3", // MIK-AS3.mp3
+  "#f0573c", // MIK-AS3.mp3
 ];
 
 // Map colors to audio files
