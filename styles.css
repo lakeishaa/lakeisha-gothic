@@ -28,7 +28,7 @@ body {
 }
 
 .cell.transition {
-  animation: colorChange 2s forwards, rotate 5s ease;
+  animation: colorChange 2s forwards, rotate 3s ease;
   transition: background-color 0.3s ease, transform 0.05s ease;
 }
 
