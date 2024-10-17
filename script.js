@@ -51,6 +51,7 @@ blackCells.forEach((cell) => {
     }
   });
 
+  // Remove the mouseleave behavior that affects audio
   cell.addEventListener("mouseleave", () => {
     cell.classList.add("transition");
     setTimeout(() => {
